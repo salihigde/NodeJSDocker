@@ -1,0 +1,5 @@
+FROM nginx
+
+MAINTAINER Salih Igde
+
+COPY nginx.conf etc/nginx/nginx.conf

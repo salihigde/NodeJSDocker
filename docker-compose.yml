@@ -1,0 +1,23 @@
+nginx:
+    build: ./nginx
+    links:
+        - nodetest01:nodetest01
+        - nodetest02:nodetest02
+    ports:
+        - "80:80"
+nodetest01:
+    build: ./nodetest01
+    links:
+        - redis
+    ports:
+        - "8080"
+nodetest02:
+    build: ./nodetest02
+    links:
+        - redis
+    ports:
+        - "8090"
+redis:
+    image: redis
+    ports:
+        - "6379"
